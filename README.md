@@ -74,6 +74,12 @@ If you want to use Memcache, you need to install `LswMemcacheBundle`
 
 * https://github.com/LeaseWeb/LswMemcacheBundle
 
+### Beryllium Memcache
+
+If you want to use Beryllium Memcache, you need to install `BerylliumCacheBundle`
+
+* https://github.com/beryllium/CacheBundle
+
 ### Doctrine cache
 
 If you want to use Doctrine cache as your storage engine, you will need to install `DoctrineCacheBundle`:
@@ -103,13 +109,16 @@ noxlogic_rate_limit:
     enabled:              true
 
     # The storage engine where all the rates will be stored
-    storage_engine:       ~ # One of "redis"; "memcache"; "doctrine"
+    storage_engine:       ~ # One of "redis"; "memcache"; "doctrine"; "beryllium_memcache"
 
     # The redis client to use for the redis storage engine
     redis_client:         default_client
 
     # The memcache client to use for the memcache storage engine
     memcache_client:      default
+    
+    # The beryllium memcache client to use for the memcache storage engine
+    beryllium_memcache_client:      default
 
     # The Doctrine Cache provider to use for the doctrine storage engine
     doctrine_provider:    null # Example: my_apc_cache
