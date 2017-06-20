@@ -1,3 +1,7 @@
+## 1.8.0
+2017-06-20 Ayush Aggarwal <agg.ayush234@gmail.com>
+        Added support to use berylliumCacheBundle to use memcache
+
 ## 1.7.0
 2016-03-25  Joshua Thijsen <jthijssen@noxlogic.nl>
 	Fixed issue where manual reset did not correctly reset in redis
