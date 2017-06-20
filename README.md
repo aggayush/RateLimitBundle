@@ -1,11 +1,7 @@
 NoxlogicRateLimitBundle
 ========================
 
-[![Build Status](https://travis-ci.org/jaytaph/RateLimitBundle.svg?branch=master)](https://travis-ci.org/jaytaph/RateLimitBundle)
-[![Code Coverage](https://scrutinizer-ci.com/g/jaytaph/RateLimitBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/jaytaph/RateLimitBundle/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jaytaph/RateLimitBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jaytaph/RateLimitBundle/?branch=master)
-
-[![Latest Stable Version](https://poser.pugx.org/noxlogic/ratelimit-bundle/v/stable.svg)](https://packagist.org/packages/noxlogic/ratelimit-bundle) [![Total Downloads](https://poser.pugx.org/noxlogic/ratelimit-bundle/downloads.svg)](https://packagist.org/packages/noxlogic/ratelimit-bundle) [![Latest Unstable Version](https://poser.pugx.org/noxlogic/ratelimit-bundle/v/unstable.svg)](https://packagist.org/packages/noxlogic/ratelimit-bundle) [![License](https://poser.pugx.org/noxlogic/ratelimit-bundle/license.svg)](https://packagist.org/packages/noxlogic/ratelimit-bundle)
+Taken from https://github.com/jaytaph/RateLimitBundle and updated for beryllium cache bundle support.
 
 This bundle provides enables the `@RateLimit` annotation which allows you to limit the number of connections to actions.
 This is mostly useful in APIs.
@@ -32,15 +28,20 @@ Add the NoxlogicRateLimitBundle in your composer.json:
 ```js
 {
     "require": {
-        "noxlogic/ratelimit-bundle": "1.x"
-    }
+        "aggayush/ratelimit-bundle": "1.x"
+    },
+    "repositories": [{
+    {
+        "type": "vcs",
+        "url": "https://github.com/aggayush/RateLimitBundle.git"
+    }]
 }
 ```
 
 Now tell composer to download the bundle by running the command:
 
 ``` bash
-php composer.phar update noxlogic/ratelimit-bundle
+php composer.phar update aggayush/ratelimit-bundle
 ```
 
 ### Step 2: Enable the bundle
@@ -70,9 +71,10 @@ If you want to use Redis as your storage engine, you will need to install `SncRe
 
 ### Memcache
 
-If you want to use Memcache, you need to install `LswMemcacheBundle`
+If you want to use Memcache, you need to install `LswMemcacheBundle` or `BerylliumCacheBundle`
 
 * https://github.com/LeaseWeb/LswMemcacheBundle
+* https://github.com/beryllium/CacheBundle
 
 ### Doctrine cache
 
@@ -103,13 +105,16 @@ noxlogic_rate_limit:
     enabled:              true
 
     # The storage engine where all the rates will be stored
-    storage_engine:       ~ # One of "redis"; "memcache"; "doctrine"
+    storage_engine:       ~ # One of "redis"; "memcache"; "doctrine"; "beryllium_memcache"
 
     # The redis client to use for the redis storage engine
     redis_client:         default_client
 
     # The memcache client to use for the memcache storage engine
     memcache_client:      default
+    
+    # The memcache client to use for the memcache storage engine
+    beryllium_memcache_client:      default
 
     # The Doctrine Cache provider to use for the doctrine storage engine
     doctrine_provider:    null # Example: my_apc_cache
