@@ -6,6 +6,10 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Joshua Thijssen",
+            "email": "jthijssen@noxlogic.nl"
+        },
+        {
             "name": "Ayush Aggarwal",
             "email": "agg.ayush234@gmail.com"
         }
@@ -25,7 +29,7 @@
         "Beryllium/CacheBundle": "Used Beryllium cache client"
     },
     "autoload": {
-        "psr-0": { "aggayush\\RateLimitBundle": "" }
+        "psr-0": { "Noxlogic\\RateLimitBundle": "" }
     },
-    "target-dir": "aggayush/RateLimitBundle"
+    "target-dir": "Noxlogic/RateLimitBundle"
 }
